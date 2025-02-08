@@ -3,6 +3,8 @@ package controllers;
 import java.io.File;
 import java.util.List;
 
+import org.json.simple.parser.ParseException;
+
 import fileOperations.CopyMedia;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,7 +46,7 @@ public class NewMediaScreenController {
 	}
 
     @FXML
-    void chooseDirectory(ActionEvent event) {
+    void chooseDirectory(ActionEvent event) throws ParseException {
     	Alert alert=null;
     	if(!mediaName.getText().isBlank()) {
     		DirectoryChooser chooser=new DirectoryChooser();
@@ -66,7 +68,7 @@ public class NewMediaScreenController {
     }
 
     @FXML
-    void chooseFile(ActionEvent event) {
+    void chooseFile(ActionEvent event) throws ParseException {
     	Alert alert=null;
     	if(!mediaName.getText().isBlank()) {
     		FileChooser chooser=new FileChooser();
