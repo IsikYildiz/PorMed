@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 
+import fileOperations.Media;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,13 +20,7 @@ public class MainScreenController {
     private Button exitButton;
 
     @FXML
-    private Button openCollectionsButton;
-
-    @FXML
     private Button openMediaButton;
-
-    @FXML
-    private Button openRatingsButton;
 
     @FXML
     private Button openTagButton;
@@ -59,22 +54,28 @@ public class MainScreenController {
     }
 
     @FXML
-    void openCollections(ActionEvent event) {
-
-    }
-
-    @FXML
     void openMedia(ActionEvent event) {
-
-    }
-
-    @FXML
-    void openRatings(ActionEvent event) {
-
+    	try {
+    		FXMLLoader mediaLoader = new FXMLLoader(getClass().getResource("/views/MediaScreen.fxml"));
+        	Parent root=mediaLoader.load();
+        	MediaScreenController controller=mediaLoader.getController();
+        	controller.series=Media.getSeries();
+        	controller.pageNum=1;
+        	controller.checkPageNum();
+        	controller.getMedia();
+        	openMediaButton.getScene().setRoot(root);
+        } catch (Exception e) {
+            System.out.println("Error Could Not Open/Find fxml File");
+        }
     }
 
     @FXML
     void openTag(ActionEvent event) {
-
+    	try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/TagsScreen.fxml"));
+            copyButton.getScene().setRoot(root);
+        } catch (Exception e) {
+            System.out.println("Error Could Not Open/Find fxml File");
+        }
     }
 }

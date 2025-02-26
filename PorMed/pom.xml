@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.IsikYildiz.PorMed</groupId>
   <artifactId>PorMed</artifactId>
-  <version>0.1</version>
+  <version>0.7</version>
 
 <dependencies>
 	<dependency>

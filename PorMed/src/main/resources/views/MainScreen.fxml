@@ -5,36 +5,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" stylesheets="@../ui/PortMed.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainScreenController">
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" stylesheets="@../ui/PorMed.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainScreenController">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="openMediaButton" mnemonicParsing="false" onAction="#openMedia" styleClass="long-button" stylesheets="@../ui/PortMed.css" text="Media">
+            <Button fx:id="openMediaButton" mnemonicParsing="false" onAction="#openMedia" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Media">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="copyButton" mnemonicParsing="false" onAction="#copyMedia" styleClass="long-button" stylesheets="@../ui/PortMed.css" text="Add Video(s)">
+            <Button fx:id="copyButton" mnemonicParsing="false" onAction="#copyMedia" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Add Video(s)">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="openCollectionsButton" mnemonicParsing="false" onAction="#openCollections" styleClass="long-button" stylesheets="@../ui/PortMed.css" text="Collections">
+            <Button fx:id="openTagButton" mnemonicParsing="false" onAction="#openTag" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Tags">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="openRatingsButton" mnemonicParsing="false" onAction="#openRatings" styleClass="long-button" stylesheets="@../ui/PortMed.css" text="Ratings">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="openTagButton" mnemonicParsing="false" onAction="#openTag" styleClass="long-button" stylesheets="@../ui/PortMed.css" text="Tags">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exit" styleClass="long-button" stylesheets="@../ui/PortMed.css" text="Exit">
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exit" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Exit">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

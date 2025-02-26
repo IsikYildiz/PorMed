@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MediaScreenController">
+   <center>
+      <VBox fx:id="vbox" alignment="TOP_CENTER" maxHeight="800.0" maxWidth="1200.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <BorderPane maxWidth="750.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <center>
+                  <TextField fx:id="searchField" maxWidth="700.0" promptText="Search..." styleClass="textfield" stylesheets="@../ui/PorMed.css" />
+               </center>
+               <right>
+                  <Button fx:id="searchButton" maxHeight="50.0" maxWidth="50.0" mnemonicParsing="false" onAction="#search" styleClass="long-button" stylesheets="@../ui/PorMed.css" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ui/Search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </right>
+            </BorderPane>
+            <BorderPane fx:id="pageBorderPane" maxHeight="50.0" maxWidth="165.0" prefHeight="200.0" prefWidth="200.0">
+               <left>
+                  <Button fx:id="previousButton" maxHeight="0.0" maxWidth="50.0" mnemonicParsing="false" onAction="#previousPage" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="&lt;" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Button fx:id="nextButton" maxWidth="50.0" mnemonicParsing="false" onAction="#nextPage" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="&gt;" BorderPane.alignment="CENTER" />
+               </right>
+               <center>
+                  <TextField fx:id="pageNumber" maxWidth="150.0" styleClass="textfield" stylesheets="@../ui/PorMed.css" text="1" BorderPane.alignment="CENTER" />
+               </center>
+               <VBox.margin>
+                  <Insets left="550.0" top="15.0" />
+               </VBox.margin>
+            </BorderPane>
+            <Button fx:id="backButton" maxWidth="400.0" mnemonicParsing="false" onAction="#goBack" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Go Back">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+   <right>
+      <ScrollPane fx:id="scrollPane" maxHeight="700.0" maxWidth="600.0" prefWidth="600.0" style="-fx-background: empty; -fx-border-color: empty;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </ScrollPane>
+   </right>
+</BorderPane>
