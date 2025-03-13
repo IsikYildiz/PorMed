@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.List;
 import org.json.simple.parser.ParseException;
 import fileOperations.CopyMedia;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
@@ -36,12 +39,30 @@ public class NewMediaScreenController {
     @FXML
     private BorderPane pane;
     
+    public Bubbles bubbleImages=new Bubbles();
+    
     @FXML
 	void initialize() {
-		List<Circle> bubbles=Bubbles.getBubbles();
-		for(Circle a:bubbles) {
-			pane.getChildren().add(0,a);
-		}
+    	Task<Void> task = new Task<Void>() {
+	         @Override protected Void call() throws Exception {
+	        	 while(true) {
+	        		 if(isCancelled()) {
+	        			 break;
+	        		 }
+	        		 Platform.runLater(new Runnable() {
+	                     @Override public void run() {
+	                    	 ImageView bubbleImage=bubbleImages.getBubble();
+	                    	 pane.getChildren().addFirst(bubbleImage);
+	                     }
+	                 });
+	        		 Thread.sleep((1+(int)Math.random()*3)*1000);
+	        	 }
+	        	 return null;
+	         }
+	     };
+	     
+	   Thread th = new Thread(task);
+       th.start();
 		
 		pane.setOnKeyPressed(e->{
         	if(e.getCode()==KeyCode.ESCAPE) {

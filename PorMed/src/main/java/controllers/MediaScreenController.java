@@ -2,7 +2,6 @@ package controllers;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -10,9 +9,10 @@ import java.util.List;
 
 import org.json.simple.parser.ParseException;
 
-import fileOperations.FindVideosFileVisitor;
 import fileOperations.JsonOperations;
 import fileOperations.Media;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +29,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
 import javafxCode.Bubbles;
 
 public class MediaScreenController {
@@ -70,14 +69,31 @@ public class MediaScreenController {
     
     public List<String> selectedTags=new ArrayList<>();
     
+    public Bubbles bubbleImages=new Bubbles();
+    
     @FXML
     void initialize() throws FileNotFoundException, IOException, ParseException {
-    	Media.clearVideoPaths();
     	
-        List<Circle> bubbles = Bubbles.getBubbles();
-        for (Circle a : bubbles) {
-            pane.getChildren().addFirst(a);
-        }
+    	Task<Void> task = new Task<Void>() {
+	         @Override protected Void call() throws Exception {
+	        	 while(true) {
+	        		 if(isCancelled()) {
+	        			 break;
+	        		 }
+	        		 Platform.runLater(new Runnable() {
+	                     @Override public void run() {
+	                    	 ImageView bubbleImage=bubbleImages.getBubble();
+	                    	 pane.getChildren().addFirst(bubbleImage);
+	                     }
+	                 });
+	        		 Thread.sleep((1+(int)Math.random()*3)*1000);
+	        	 }
+	        	 return null;
+	         }
+	     };
+	     
+	    Thread th = new Thread(task);
+        th.start();
         
         pane.setOnKeyPressed(e->{
         	if(e.getCode()==KeyCode.ESCAPE) {
@@ -168,9 +184,13 @@ public class MediaScreenController {
                 serie.getProperties().put("path", series.get(k));
                 serie.setOnMouseClicked((MouseEvent event)->{
                 	try {
-                		FindVideosFileVisitor walk=new FindVideosFileVisitor();
-						Files.walkFileTree(Paths.get(serie.getProperties().get("path").toString()), walk);
-						Parent root = FXMLLoader.load(getClass().getResource("/views/SerieScreen.fxml"));
+                		FXMLLoader serieLoader = new FXMLLoader(getClass().getResource("/views/SerieScreen.fxml"));
+                    	Parent root=serieLoader.load();
+						SerieScreenController controller=serieLoader.getController();
+						controller.videos=Media.getVideos(Paths.get(serie.getProperties().get("path").toString()));
+						controller.serie=Paths.get(serie.getProperties().get("path").toString());
+						controller.mediaRoot=pane.getScene().getRoot();
+						controller.setProperties();
 	                    pane.getScene().setRoot(root);
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -187,6 +207,7 @@ public class MediaScreenController {
 
                 Label serieName = new Label(series.get(k).getFileName().toString());
                 serieName.getStyleClass().add("poster-label");
+                serieName.setWrapText(true);
                 serie.getChildren().addLast(serieName);
                 
                 gridPane.add(serie, j, i);

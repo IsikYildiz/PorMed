@@ -1,6 +1,6 @@
 .long-button{
     -fx-pref-width: 550px;
-    -fx-pref-height: 50px;
+    -fx-pref-height: 40px;
     -fx-border-color: rgb(70, 77, 126);
     -fx-border-width: 2px;
     -fx-border-style: solid;
@@ -18,6 +18,9 @@
 .long-button:active{
     -fx-background-color: rgb(104, 198, 198);
 }
+.warning-background{
+	-fx-background-color: rgb(255, 0, 50);
+}
 .poster{
     -fx-pref-width: 150px;
     -fx-pref-height: 210px;
@@ -30,7 +33,7 @@
     -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     -fx-color:rgb(0, 0, 0);
     -fx-font-weight: bold;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-background-color: rgb(201, 226, 226);
 }
 .vbox{
@@ -43,32 +46,10 @@
 .vbox:pressed{
 	-fx-opacity:0.8;
 }
-.tag{
-    -fx-min-width: 120px;
-    -fx-pref-height: 20px;
-    -fx-border-color: rgb(70, 77, 126);
-    -fx-border-width: 2px;
-    -fx-border-style: solid;
-    -fx-background-color: rgb(201, 226, 226);
-    -fx-padding: 12px 8px 12px 8px;
-    -fx-border-radius: 15px;
-    -fx-alignment: center;
-    -fx-font-size: 18px;
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.reg-label{
-    -fx-pref-width:350px;
-    -fx-pref-height: 48px;
-    -fx-font-size: 24px;
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-padding: 10px;
-    -fx-color:rgb(0, 0, 0);
-    -fx-font-weight: bold;
-}
 .boxed-label{
-    -fx-pref-width:180px;
-    -fx-pref-height: 60px;
-    -fx-font-size: 24px;
+    -fx-pref-width:140px;
+    -fx-pref-height: 50px;
+    -fx-font-size: 16px;
     -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     -fx-padding: 10px;
     -fx-color:rgb(0, 0, 0);
@@ -77,7 +58,6 @@
     -fx-border-style: solid;
     -fx-background-color: rgb(201, 226, 226);
     -fx-background-radius: 15px; 
-    -fx-border-width:3px;
     -fx-border-radius: 15px;
 }
 .boxed-label:focused{
@@ -89,20 +69,6 @@
 .boxed-label:hover{
 	-fx-background-color: rgb(104, 198, 198);
 }
-
-.textarea{
-    -fx-pref-width:350px;
-    -fx-pref-height:240px;
-    -fx-font-size: 24px;
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-border-color: rgb(70, 77, 126);
-    -fx-border-width: 2px;
-    -fx-border-style: solid;
-    -fx-padding: 10px;
-    -fx-background-color: rgb(201, 226, 226);
-    -fx-alignment: left;
-    -fx-text-fill:black;
-}
 .textfield{
     -fx-pref-width:350px;
     -fx-pref-height: 48px;
@@ -112,6 +78,36 @@
     -fx-border-width: 2px;
     -fx-border-style: solid;
     -fx-padding: 10px;
+    -fx-background-color: rgb(201, 226, 226);
+    -fx-alignment: center;
+    -fx-text-fill:black;
+}
+.header{
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-border-color: rgb(70, 77, 126);
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-background-color: rgb(201, 226, 226);
+    -fx-text-fill:black;
+}
+.video-label{
+	-fx-pref-width:300px;
+    -fx-pref-height: 50px;
+    -fx-font-size: 16px;
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-color:rgb(0, 0, 0);
+    -fx-border-color: rgb(70, 77, 126);
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-background-color: rgb(201, 226, 226);
+}
+.textarea .content{
+    -fx-font-size: 12px;
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-border-color: rgb(70, 77, 126);
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-padding: 3px;
     -fx-background-color: rgb(201, 226, 226);
     -fx-alignment: center;
     -fx-text-fill:black;

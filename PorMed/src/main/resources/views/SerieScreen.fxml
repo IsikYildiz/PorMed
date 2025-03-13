@@ -1,11 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SerieScreenController">
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SerieScreenController">
    <center>
-      <VBox fx:id="vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox fx:id="vbox" alignment="CENTER" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <BorderPane maxWidth="600.0">
+               <right>
+                  <BorderPane prefHeight="40.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <TextField fx:id="rating" alignment="CENTER" maxHeight="20.0" style="-fx-background: empty; -fx-border-color: black; -fx-border-style: dotted;" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                        </TextField>
+                     </center>
+                  </BorderPane>
+               </right>
+               <top>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="520.0" text="Rating" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets bottom="2.0" />
+                     </BorderPane.margin>
+                  </Label>
+               </top>
+               <center>
+                  <TextField fx:id="serieName" maxHeight="1.7976931348623157E308" styleClass="header" stylesheets="@../ui/PorMed.css" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets right="5.0" />
+                     </BorderPane.margin>
+                  </TextField>
+               </center>
+            </BorderPane>
+            <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="120.0" maxWidth="600.0" style="-fx-background: empty;">
+               <content>
+                  <TextArea fx:id="comment" prefHeight="200.0" prefWidth="200.0" promptText="Make a comment..." styleClass="textarea" stylesheets="@../ui/PorMed.css" wrapText="true" />
+               </content>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </ScrollPane>
+            <ScrollPane fx:id="videoPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: empty; -fx-background: empty;">
+               <VBox.margin>
+                  <Insets bottom="30.0" top="30.0" />
+               </VBox.margin>
+               <content>
+                  <GridPane fx:id="videoGrid">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+            <Button mnemonicParsing="false" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Add Video">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" stylesheets="@../ui/PorMed.css" text="Delete Serie">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="long-button" />
+                  <String fx:value="warning-background" />
+               </styleClass>
+            </Button>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Go Back">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
    </center>
 </BorderPane>

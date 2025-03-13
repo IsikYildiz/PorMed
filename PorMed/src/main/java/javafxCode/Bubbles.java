@@ -1,56 +1,51 @@
 package javafxCode;
 
-import java.util.ArrayList;
-import java.util.List;
-import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration; 
 
-public class Bubbles {
-	final static int xAxis[]= {150,900,650,360,1200};
-	final static int yAxis[]= {70,150,340,480,600};
+public class Bubbles{
+	public int xAxis;
+	public int yAxis;
 	
-	public static List<Circle> getBubbles() {
-		List<Circle> bubbles=new ArrayList<>();
-		for(int i=0;i<5;i++) {
-			Circle cir=new Circle();
-			cir.setLayoutX(xAxis[i]);
-			cir.setLayoutY(yAxis[i]);
-			cir.setRadius(80);
-			cir.setFill(Color.DEEPSKYBLUE);
-			cir.setStroke(Color.MEDIUMBLUE);
-			cir.setStrokeWidth(2);
-			cir.setOpacity(0.5);
-			
-			FadeTransition fade=makeFade();
-			fade.setNode(cir);
-			fade.play();
-			
-			TranslateTransition move=makeTranslate();
-			move.setToY(50);
-			move.setNode(cir);
-			move.play();
-			
-			bubbles.add(cir);
-		}
-		return bubbles;
+	public ImageView getBubble() {
+		Image bubble=new Image("/ui/Bubble.png");
+		xAxis=(int) (50+Math.random()*1330);
+		yAxis=(int) (20+Math.random()*630);
+		ImageView bubbleImage=new ImageView(bubble);
+		bubbleImage.setLayoutX(xAxis);
+		bubbleImage.setLayoutY(yAxis);
+		bubbleImage.maxWidth(130);
+		bubbleImage.maxHeight(130);
+		bubbleImage.setFitWidth(130);
+		bubbleImage.setFitHeight(130);
+		
+		FadeTransition fade=makeFade();
+		fade.setNode(bubbleImage);
+		fade.play();
+		
+		TranslateTransition move=makeTranslate();
+		move.setToY(50);
+		move.setNode(bubbleImage);
+		move.play();
+		
+		return bubbleImage;
 	}
 	
-	public static FadeTransition makeFade() {
-		FadeTransition fade=new FadeTransition(Duration.seconds(8));
-		fade.setFromValue(0.5); 
-		fade.setToValue(0.0); 
-		fade.setCycleCount(Animation.INDEFINITE);
-		fade.setAutoReverse(false);
+	public FadeTransition makeFade() {
+		FadeTransition fade=new FadeTransition(Duration.seconds(4));
+		fade.setFromValue(0); 
+		fade.setToValue(1); 
+		fade.setCycleCount(2);
+		fade.setAutoReverse(true);
 		return fade;
 	}
 	
-	public static TranslateTransition makeTranslate() {
+	public TranslateTransition makeTranslate() {
 		TranslateTransition move=new TranslateTransition(Duration.seconds(8));
-		move.setCycleCount(Animation.INDEFINITE);
+		move.setCycleCount(1);
 		move.setAutoReverse(false);
 		return move;
 	}

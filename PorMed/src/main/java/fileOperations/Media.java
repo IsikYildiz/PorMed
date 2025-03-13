@@ -15,26 +15,24 @@ import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 
 public class Media {
-	public static List<Path> videoPaths=new ArrayList<>();
-	
-	public static void addVideoPath(Path videoPath) {
-		videoPaths.add(videoPath);
-	}
-	
-	public static void clearVideoPaths() {
-		videoPaths.clear();
-	}
-	
-	public static List<Path> getVideoPaths(){
-		Collections.sort(videoPaths);
-		return videoPaths;
-	}
 	
 	public static List<Path> getSeries() throws IOException {
 		try (Stream<Path> seriePathsStream = Files.list(CopyMedia.returnCurrentDir().resolve("Media"))) {
-	        return seriePathsStream
+			List<Path> series=seriePathsStream
 	                .filter(Files::isDirectory)
-	                .collect(Collectors.toList()); 
+	                .collect(Collectors.toList());
+			Collections.sort(series);
+	        return series;
+	    }
+	}
+	
+	public static List<Path> getVideos(Path serie) throws IOException{
+		try (Stream<Path> seriePathsStream = Files.list(serie)) {
+			List<Path> series=seriePathsStream
+	                .filter(Files::isDirectory)
+	                .collect(Collectors.toList());
+			Collections.sort(series);
+	        return series;
 	    }
 	}
 	
@@ -83,6 +81,7 @@ public class Media {
 				}
 			}
 		}
+		Collections.sort(filteredSeries);
 		return filteredSeries;
 	}
 }

@@ -122,7 +122,6 @@ public class JsonOperations {
 		videoJson.put("videoName",videoName);
 		videoJson.put("rating", "");
 		videoJson.put("comment", "");
-		videoJson.put("tags",tags);
 		
 		return videoJson;
 	}

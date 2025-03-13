@@ -8,6 +8,8 @@ import org.json.simple.parser.ParseException;
 import fileOperations.CopyMedia;
 import fileOperations.JsonOperations;
 import fileOperations.WalkFile;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -42,12 +45,30 @@ public class TagsScreenController {
     @FXML
     private Button backButton;
     
+    public Bubbles bubbleImages=new Bubbles();
+    
     @FXML
     void initialize() throws FileNotFoundException, IOException, ParseException {
-        List<Circle> bubbles = Bubbles.getBubbles();
-        for (Circle a : bubbles) {
-            pane.getChildren().addFirst(a);
-        }
+    	Task<Void> task = new Task<Void>() {
+	         @Override protected Void call() throws Exception {
+	        	 while(true) {
+	        		 if(isCancelled()) {
+	        			 break;
+	        		 }
+	        		 Platform.runLater(new Runnable() {
+	                     @Override public void run() {
+	                    	 ImageView bubbleImage=bubbleImages.getBubble();
+	                    	 pane.getChildren().addFirst(bubbleImage);
+	                     }
+	                 });
+	        		 Thread.sleep((1+(int)Math.random()*3)*1000);
+	        	 }
+	        	 return null;
+	         }
+	     };
+	     
+	   Thread th = new Thread(task);
+       th.start();
         
         pane.setOnKeyPressed(e->{
         	if(e.getCode()==KeyCode.ESCAPE) {
