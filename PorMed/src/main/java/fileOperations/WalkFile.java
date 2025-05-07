@@ -8,6 +8,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 import org.json.simple.parser.ParseException;
 
+// Taglerin silinmesiyle ilgili sınıftır.
 public class WalkFile implements FileVisitor<Path>{
 	public static String tag;
 	
@@ -19,7 +20,8 @@ public class WalkFile implements FileVisitor<Path>{
     public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
        return FileVisitResult.CONTINUE;
     }
-
+    
+    // Tüm json dosyalarını gezer ve eğer tag varsa siler.
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
     	if(CopyMedia.getExtension(file.toString()).equals("json")) {

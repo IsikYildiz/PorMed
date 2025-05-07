@@ -6,11 +6,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration; 
 
+// Bu sınıf ekranda baloncuk çıkarmakla görevlidir.
 public class Bubbles{
 	public int xAxis;
 	public int yAxis;
 	
 	public ImageView getBubble() {
+		// Baloncukların özellikleri ayarlanır
 		Image bubble=new Image("/ui/Bubble.png");
 		xAxis=(int) (50+Math.random()*1330);
 		yAxis=(int) (20+Math.random()*630);
@@ -34,6 +36,7 @@ public class Bubbles{
 		return bubbleImage;
 	}
 	
+	// Baloncukların kaybolma animasyonunu oluşturur
 	public FadeTransition makeFade() {
 		FadeTransition fade=new FadeTransition(Duration.seconds(4));
 		fade.setFromValue(0); 
@@ -43,6 +46,7 @@ public class Bubbles{
 		return fade;
 	}
 	
+	// Baloncukların aşağıya doğru haraket etmelerini sağlar
 	public TranslateTransition makeTranslate() {
 		TranslateTransition move=new TranslateTransition(Duration.seconds(8));
 		move.setCycleCount(1);

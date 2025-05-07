@@ -8,9 +8,6 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -59,30 +56,25 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </ScrollPane>
-            <ScrollPane fx:id="videoPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: empty; -fx-background: empty;">
+            <ScrollPane fx:id="videoPane" prefHeight="270.0" prefWidth="400.0" style="-fx-background-color: empty; -fx-background: empty;">
                <VBox.margin>
-                  <Insets bottom="30.0" top="30.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
                <content>
-                  <GridPane fx:id="videoGrid">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
+                  <VBox fx:id="videoList" alignment="CENTER" />
                </content>
             </ScrollPane>
-            <Button mnemonicParsing="false" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Add Video">
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addVideo" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Add Video">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" stylesheets="@../ui/PorMed.css" text="Delete Serie">
+            <Button fx:id="posterButton" mnemonicParsing="false" onAction="#addPoster" styleClass="long-button" stylesheets="@../ui/PorMed.css" text="Add Poster">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteSerie" stylesheets="@../ui/PorMed.css" text="Delete Serie">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

@@ -13,86 +13,93 @@ import javafx.scene.layout.BorderPane;
 import javafxCode.Bubbles;
 
 public class MainScreenController {
-	@FXML
+    @FXML
     private Button copyButton;
-
     @FXML
     private Button exitButton;
-
     @FXML
     private Button openMediaButton;
-
     @FXML
     private Button openTagButton;
-
     @FXML
     private BorderPane pane;
     
-    public Bubbles bubbleImages=new Bubbles();
-	
-	@FXML
-	void initialize() {
-		Task<Void> task = new Task<Void>() {
-	         @Override protected Void call() throws Exception {
-	        	 while(true) {
-	        		 if(isCancelled()) {
-	        			 break;
-	        		 }
-	        		 Platform.runLater(new Runnable() {
-	                     @Override public void run() {
-	                    	 ImageView bubbleImage=bubbleImages.getBubble();
-	                    	 pane.getChildren().addFirst(bubbleImage);
-	                     }
-	                 });
-	        		 Thread.sleep((1+(int)Math.random()*3)*1000);
-	        	 }
-	        	 return null;
-	         }
-	     };
-	     
-	     Thread th = new Thread(task);
-         th.start();
-	}
-
-
-    @FXML
-    void copyMedia(ActionEvent event) {
-    	try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/NewMediaScreen.fxml"));
-            copyButton.getScene().setRoot(root);
-        } catch (Exception e) {
-            System.out.println("Error Could Not Open/Find fxml File");
-        }
-    }
+    public Bubbles bubbleImages = new Bubbles();
     
     @FXML
-    void exit(ActionEvent event) {
-    	System.exit(1);
+    void initialize() {
+        startBubbleAnimation();
     }
 
+    // Baloncuk animasyonunu başlatan metod
+    private void startBubbleAnimation() {
+        Task<Void> task = new Task<Void>() {
+            @Override 
+            protected Void call() throws Exception {
+                while (!isCancelled()) {
+                    Platform.runLater(() -> {
+                        ImageView bubbleImage = bubbleImages.getBubble();
+                        pane.getChildren().addFirst(bubbleImage);
+                    });
+                    Thread.sleep((1 + (int)(Math.random() * 3)) * 1000); // 1-3 saniye arası rastgele bekleme
+                }
+                return null;
+            }
+        };
+        
+        Thread th = new Thread(task);
+        th.setDaemon(true); // Uygulama kapatıldığında thread'in de sonlanmasını sağlar
+        th.start();
+    }
+
+    // Yeni medya ekranını açan metod
+    @FXML
+    void copyMedia(ActionEvent event) {
+        loadNewScene("/views/NewMediaScreen.fxml", event);
+    }
+    
+    // Uygulamadan çıkış yapan metod
+    @FXML
+    void exit(ActionEvent event) {
+        Platform.exit(); // Daha temiz bir çıkış için Platform.exit() kullanıldı
+    }
+
+    // Medya ekranını açan metod
     @FXML
     void openMedia(ActionEvent event) {
-    	try {
-    		FXMLLoader mediaLoader = new FXMLLoader(getClass().getResource("/views/MediaScreen.fxml"));
-        	Parent root=mediaLoader.load();
-        	MediaScreenController controller=mediaLoader.getController();
-        	controller.series=Media.getSeries();
-        	controller.pageNum=1;
-        	controller.checkPageNum();
-        	controller.getMedia();
-        	openMediaButton.getScene().setRoot(root);
+        try {
+            FXMLLoader mediaLoader = new FXMLLoader(getClass().getResource("/views/MediaScreen.fxml"));
+            Parent root = mediaLoader.load();
+            MediaScreenController controller = mediaLoader.getController();
+            controller.series = Media.getSeries();
+            controller.pageNum = 1;
+            controller.checkPageNum();
+            controller.getMedia();
+            openMediaButton.getScene().setRoot(root);
         } catch (Exception e) {
-            System.out.println("Error Could Not Open/Find fxml File");
+            handleSceneLoadError(e);
         }
     }
 
+    // Etiket ekranını açan metod
     @FXML
     void openTag(ActionEvent event) {
-    	try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/TagsScreen.fxml"));
-            copyButton.getScene().setRoot(root);
+        loadNewScene("/views/TagsScreen.fxml", event);
+    }
+
+    // Yeni sahne yüklemek için ortak metod
+    private void loadNewScene(String fxmlPath, ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
+            ((Button)event.getSource()).getScene().setRoot(root);
         } catch (Exception e) {
-            System.out.println("Error Could Not Open/Find fxml File");
+            handleSceneLoadError(e);
         }
+    }
+
+    // Hata yönetimi için ortak metod
+    private void handleSceneLoadError(Exception e) {
+        System.err.println("Hata: FXML dosyası açılamadı veya bulunamadı");
+        e.printStackTrace(); // Hata detaylarını yazdır
     }
 }
