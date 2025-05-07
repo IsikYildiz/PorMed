@@ -1,14 +1,35 @@
 # PorMed
 
-Proje:
+PorMed, video koleksiyonunuzu düzenlemek ve kataloglamak için tasarlanmış taşınabilir bir medya yönetim uygulamasıdır. Tek bir klasör yapısında tamamen taşınabilir bir medya kütüphanesi oluşturur.
+Temel Özellikler:
 
-- Pormed kısaca her türlü videoların saklanabileceği bir albüm yaratılması amacıyla yapılmıştır ve taşınabilir bir yapıdadır. Öncelikle kullanıcı istediği videoyu ya da videoları uygulama üzerinden klasöre kopyalar. Daha sonra kullanıcı istediği zaman videolara erişebilir. 
+  Taşınabilir Medya Kütüphanesi: Tüm koleksiyon tek bir klasör yapısında saklanır
 
-- Videolara erişimin kolaylaştırılması için bir arama çubuğu eklenmiştir. Arama hem video isimlerinden hem de videoların taglerinden yapılabilmektedir. 
+  Esnek Organizasyon:
 
-- Kullanıcı isterse videolara tagler ekleyebilmektedir. Sadece hazır tagleri kullanmasına gerek yoktur, isterse tag ekleme menüsünden kolaylıkla istediği tagi ekleyebilir. İstenilen tag seçilip "delete" tuşuna basılarak silinebilir. Bunun dışında videoları istediği şekilde değerlendirebilir ve yorum ekleyebilir. 
+      - Tek videolar ve dizi/season organizasyonu desteği
 
-- Uygulama tamamen bir klasörde gerçekleştiği için kolayca taşınabilmektedir. Böylece büyük bir film/tv-show arşivi yapılabilir.
+      - Otomatik metadata dosyası oluşturma
+
+  Akıllı Arama:
+
+      - Video isimleri veya etiketlerle arama yapabilme
+
+      - Hızlı filtreleme özellikleri
+
+  Özel Etiketleme Sistemi:
+
+        - Önceden tanımlı kategoriler (Aksiyon, Komedi, Belgesel vb.)
+
+        - Kullanıcı tanımlı özel etiketler
+
+        - Kolay etiket yönetimi (ekleme/silme)
+
+  Değerlendirme Sistemi:
+
+        - Kişisel puanlama sistemi
+
+        - Her video için yorum/not ekleme
 
 Proje Mimarisi ve Kullanılan Teknolojiler:
 
