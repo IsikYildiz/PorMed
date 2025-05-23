@@ -74,3 +74,5 @@
 - Development IDE: **Eclipse** (chosen due to developer experience)  
 - GUI: **JavaFX**  
 - Data storage: **JSON files** (for their simplicity and flexibility)
+
+---
