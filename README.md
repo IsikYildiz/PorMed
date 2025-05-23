@@ -1,41 +1,76 @@
-# PorMed
+# PorMed - Taşınabilir Medya Yöneticisi / Portable Media Manager
 
-PorMed, video koleksiyonunuzu düzenlemek ve kataloglamak için tasarlanmış taşınabilir bir medya yönetim uygulamasıdır. Tek bir klasör yapısında tamamen taşınabilir bir medya kütüphanesi oluşturur.
-Temel Özellikler:
+## Proje Ekibi / Project Team
+**Işık Yıldız**
 
-  Taşınabilir Medya Kütüphanesi: Tüm koleksiyon tek bir klasör yapısında saklanır
+---
 
-  Esnek Organizasyon:
+## 🇹🇷 Türkçe Açıklama
 
-      - Tek videolar ve dizi/season organizasyonu desteği
+### Proje Özeti
 
-      - Otomatik metadata dosyası oluşturma
+**PorMed**, video koleksiyonunuzu düzenlemek ve kataloglamak için geliştirilmiş taşınabilir bir medya yönetim uygulamasıdır. Tüm medya içeriği tek bir klasör yapısı içinde organize edilerek taşınabilir hale getirilir.
 
-  Akıllı Arama:
+### Temel Özellikler
 
-      - Video isimleri veya etiketlerle arama yapabilme
+- **📁 Taşınabilir Medya Kütüphanesi**  
+  - Tüm koleksiyon tek bir klasör yapısında saklanır.
 
-      - Hızlı filtreleme özellikleri
+- **🗂️ Esnek Organizasyon**  
+  - Tek videolar ve dizi/sezon yapıları desteklenir.  
+  - Videolar için otomatik metadata (bilgi) dosyası oluşturulur.
 
-  Özel Etiketleme Sistemi:
+- **🔍 Akıllı Arama**  
+  - Video ismi ve etiketlerle arama yapılabilir.  
+  - Hızlı filtreleme seçenekleri sunar.
 
-        - Önceden tanımlı kategoriler (Aksiyon, Komedi, Belgesel vb.)
+- **🏷️ Özel Etiketleme Sistemi**  
+  - Ön tanımlı kategoriler (Aksiyon, Komedi, Belgesel vb.)  
+  - Kullanıcı tanımlı özel etiketler  
+  - Etiketlerin kolay yönetimi (ekle/sil)
 
-        - Kullanıcı tanımlı özel etiketler
+- **⭐ Değerlendirme Sistemi**  
+  - Her video için kişisel puanlama  
+  - Not ve yorum ekleme imkanı
 
-        - Kolay etiket yönetimi (ekleme/silme)
+### Kullanılan Teknolojiler
 
-  Değerlendirme Sistemi:
+- Geliştirme ortamı: **Eclipse IDE** (kişisel uzmanlık nedeniyle tercih edildi)  
+- Arayüz: **JavaFX**  
+- Veri saklama: **JSON dosyaları** (esneklik ve kolay erişim sağladığı için)
 
-        - Kişisel puanlama sistemi
+---
 
-        - Her video için yorum/not ekleme
+## 🇬🇧 English Description
 
-Proje Mimarisi ve Kullanılan Teknolojiler:
+### Project Overview
 
-- Proje daha deneyimli olduğum eclipse idesinde yazılmıştır.
+**PorMed** is a portable media management application designed to help you organize and catalog your video collection. It creates a fully portable media library within a single folder structure.
 
-- Proje GUİ ı da aynı şekilde tecrübeli olduğum javaFx ile yapılmıştır.
+### Key Features
 
-- Proje de taglerin saklanması için kolaylıklarından dolayı json dosyaları kullanılmıştır.
+- **📁 Portable Media Library**  
+  - Entire collection stored within a single folder structure.
 
+- **🗂️ Flexible Organization**  
+  - Supports both standalone videos and TV series/seasons.  
+  - Automatically generates metadata files for videos.
+
+- **🔍 Smart Search**  
+  - Search by video titles or custom tags.  
+  - Fast filtering features.
+
+- **🏷️ Custom Tagging System**  
+  - Predefined categories (Action, Comedy, Documentary, etc.)  
+  - User-defined custom tags  
+  - Easy tag management (add/remove)
+
+- **⭐ Rating System**  
+  - Personal rating system for each video  
+  - Option to add notes or comments
+
+### Technologies Used
+
+- Development IDE: **Eclipse** (chosen due to developer experience)  
+- GUI: **JavaFX**  
+- Data storage: **JSON files** (for their simplicity and flexibility)
