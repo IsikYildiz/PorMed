@@ -13,23 +13,23 @@
 
 ### Temel Özellikler
 
-- **📁 Taşınabilir Medya Kütüphanesi**  
+- ** Taşınabilir Medya Kütüphanesi**  
   - Tüm koleksiyon tek bir klasör yapısında saklanır.
 
-- **🗂️ Esnek Organizasyon**  
+- ** Esnek Organizasyon**  
   - Tek videolar ve dizi/sezon yapıları desteklenir.  
   - Videolar için otomatik metadata (bilgi) dosyası oluşturulur.
 
-- **🔍 Akıllı Arama**  
+- ** Akıllı Arama**  
   - Video ismi ve etiketlerle arama yapılabilir.  
   - Hızlı filtreleme seçenekleri sunar.
 
-- **🏷️ Özel Etiketleme Sistemi**  
+- ** Özel Etiketleme Sistemi**  
   - Ön tanımlı kategoriler (Aksiyon, Komedi, Belgesel vb.)  
   - Kullanıcı tanımlı özel etiketler  
   - Etiketlerin kolay yönetimi (ekle/sil)
 
-- **⭐ Değerlendirme Sistemi**  
+- ** Değerlendirme Sistemi**  
   - Her video için kişisel puanlama  
   - Not ve yorum ekleme imkanı
 
@@ -49,23 +49,23 @@
 
 ### Key Features
 
-- **📁 Portable Media Library**  
+- ** Portable Media Library**  
   - Entire collection stored within a single folder structure.
 
-- **🗂️ Flexible Organization**  
+- ** Flexible Organization**  
   - Supports both standalone videos and TV series/seasons.  
   - Automatically generates metadata files for videos.
 
-- **🔍 Smart Search**  
+- ** Smart Search**  
   - Search by video titles or custom tags.  
   - Fast filtering features.
 
-- **🏷️ Custom Tagging System**  
+- ** Custom Tagging System**  
   - Predefined categories (Action, Comedy, Documentary, etc.)  
   - User-defined custom tags  
   - Easy tag management (add/remove)
 
-- **⭐ Rating System**  
+- ** Rating System**  
   - Personal rating system for each video  
   - Option to add notes or comments
 
